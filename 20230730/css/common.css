@@ -1,0 +1,27 @@
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.question {
+    display: none;
+}
+
+.video-next-level {
+    /* width: 100%; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* 영상이나 이미지는 height의 값에 따라 넓이 값도 자동으로 조정됨*/
+    height: 100vh;
+    width: 100vw;
+    /* position을 써서 가운데 정렬해도 되겠지만 transform:translate를 쓰면*/
+    /*이미지의 wdith나 height값을 몰라도 되는게 장점 */
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    opacity: 0.8;
+    /* 사용자가 뒷배경과 아무런 interaction을 못하게 할려면 pointer-events: none;을 사용 */
+    pointer-events: none;
+}

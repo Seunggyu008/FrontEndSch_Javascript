@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- 자주 사용되는  console.종류 -->
+    <script>
+        console.clear(); // 콘솔창 청소해줌
+        console.dir(); // 가지고 있는 요소
+        console.log();//
+        let data = {a:1, b:2, c:3};
+        console.table(data);
+
+        function leehojun() {
+            x = 10;
+            y = 10;
+            return x + y;
+        }
+
+        console.group('one');
+        console.log('1');
+        console.log('2');
+        console.log('3');
+        console.groupEnd();
+        console.group('two');
+        console.log('1');
+        console.log('2');
+        console.log('3');
+        console.groupEnd()
+
+        console.group('one')
+        for (let i = 0; i < 3; i++) {
+            console.log(i)
+            console.group('two')
+            for (let j = 0; j < 10; j++) {
+                console.log(j)
+            }
+            console.groupEnd()
+        }
+        console.groupEnd()
+
+;    </script>
+</body>
+</html>

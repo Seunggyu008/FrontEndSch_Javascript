@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>나랑 꼭 닯은 세렝게티 동물</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "css/common.css" />
+</head>
+
+<!-- container는 bootstrap에서 grid를 만들때 사용됨 -->
+<body class = "container">
+    <article class = "start">
+        <h1 class = "mt-5 text-center">나랑 꼭 닯은 세렝게티 동물</h1>
+        <button type="button" class="btn btn-primary mt-5" onclick='start();'>테스트 시작하기</button>
+    </article>
+    <article class = "question">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+            <h2>문제</h2>
+        </div>
+    </article>
+
+
+
+    <!-- bootstrap -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script>
+        function start() {
+            $(".start").hide();
+            $(".question").show();
+        }
+    </script>
+
+
+</body>
+</html>
