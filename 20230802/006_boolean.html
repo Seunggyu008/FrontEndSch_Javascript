@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolean</title>
+</head>
+
+<body>
+    <script>
+        //true(참, 1로 맵핑), false(거짓, 0로 맵핑)
+        //and(논리곱), or(논리합), not(부정)
+
+        //and 나 or도 뒤를 볼 필요가 없으면 보지 않습니다!
+        //and(논리곱)
+        console.log(true && true)
+        console.log(true && false)
+        console.log(false && true)
+        console.log(false && false)
+        console.log('가' && '나') //안에 문자가 있기 때문에 true로 평가되고, 앞이 true기 때문에 뒤도 본다
+        console.log('' && '나')
+
+        //or(논리합)
+        console.log(true || true)
+        console.log(true || false)
+        console.log(false || true)
+        console.log(false || true)
+        let username1 = 'leehojun'
+        console.log(username1 || '이름없음')
+
+        let username = ''
+        console.log(username || '이름없음')
+
+        // not (부정)
+        console.log(!true) // false
+        console.log(!false) // true
+
+        //안배운 문접을 쓰니 and랑 or에만 집중할것
+
+        for (let i = 0; i <100; i ++) {
+            if(i % 3 == 9 && i % 5 == 0)   { //or 둘중에 하나만 만족하면 실행해라
+                console.log(i)
+            }
+        }
+
+        for (let i = 0; i <100; i ++) {
+            if(i % 3 == 9 && i % 5 == 0)   {
+                console.log(i)
+            }
+        }
+
+        //if의 중첩은 논리연산자로 대채할 수 있습니다.
+
+        //매우 중요하지않음, 실무에서 거의 사용되지 않으니 알고리즘 문제에는 간혹 등장함
+
+        console.log(3 & 5)
+
+        // 0011
+        // 0101
+        // ----
+        // 0001
+
+        console.log(3 | 5)
+
+        // 0011
+        // 0101
+        // ----
+        // 0001
+
+        (9 | 30).toString(2).replaceAll('0', ' ').replaceAll('1', '#')
+
+        (20 | 1)
+    .toString(2)
+    .replaceAll('0', ' ')
+    .replaceAll('1', '#')
+
+    (28 | 21)
+    .toString(2)
+    .replaceAll('0', ' ')
+    .replaceAll('1', '#')
+
+
+
+    </script>    
+</body>
+</html>

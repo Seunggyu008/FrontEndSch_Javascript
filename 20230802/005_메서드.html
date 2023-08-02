@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드</title>
+</head>
+
+<body>
+    <script>
+        //parseInt, parseFloat
+        parseInt('px123'); //NaN
+        parseInt('     123'); //123
+        parseInt('11', 2); // 3
+        parseInt('11', 10); // 3 
+
+        //toString
+        let num = 3
+        num.toString(); // 3
+        //javascript 엔진을 숫자 뒤에 .을 소수인 숫자로 인식하기때문에 숫자를 문자열로 변환시 ()로 덮어줘야된다
+
+        //isNan();
+        isNaN(NaN); // true
+        isNaN(123); // false(NaN이 아님)
+        isNaN('123') // false(NaN이 아님)
+        isNaN('123px') // true
+        //원래라면 isNaN(NaN)만 true여야되지만 이것도 true인걸 볼수있음
+        isNaN([]);
+        isNaN();
+        
+        // Number.isNaN사용을 권고해드립니다.
+        Number.isNaN(NaN);
+        Number.isNaN(10);
+        Number.isNaN("10");
+        Number.isNaN("10px");
+        Number.isNaN([]);
+        Number.isNaN({});
+
+
+        //Math 내장객채
+        Math.PI;
+        Math.round(10.49) // 10
+        Math.round(10.81) // 11
+        Math.abs(-10); // 10
+        Math.pow(2, 3); // 8
+        Math.pow(4, 0.5); // 2
+        Math.sqrt(16); // 4, 16**0.5
+        Math.random(); // 0~1 사이의 랜덤한 숫자
+        Math.ceil(10.1); // 11
+        Math.floor(10.9); // 10
+
+        //
+        Math.max(1, 2, 3, 4, 5); // 5
+        Math.min(1, 2, 3, 4, 5); // 1
+
+        let test = [1, 2, 3];
+        Math.max(...test); // 앞에 ...을 꼭 붙여야한다
+        //전개구문은 나중에 배울것
+        Math.min(...test); // 1
+
+    </script>    
+</body>
+</html>

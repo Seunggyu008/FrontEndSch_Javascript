@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //1번쨰 풀이
+        let answer = 0;
+        let inputValue = 1234;
+
+        
+        inputValue = '' + inputValue; //권장하지 않음! 유지보수성이 떨어짐
+        answer += +inputValue[0]
+        answer[1] += +inputValue[1]
+        answer[1] += +inputValue[2]
+        answer[1] += +inputValue[3] 
+
+        inputValue = inputValue.toString() // 권장함!
+        answer += parseInt(inputValue[0])
+        answer += parseInt(inputValue[1])
+        answer += parseInt(inputValue[2])
+        answer += parseInt(inputValue[3])
+
+
+
+
+        //2번쨰 풀이
+        let answer = 0;
+        let inputValue = 1234;
+
+    
+
+        answer = answer + (inputValue % 10);
+        inputValue = inputValue / 10
+
+        answer += inputValue % 10;
+        inputValue = inputValue / 10
+
+        answer += inputValue % 10;
+        inputValue = inputValue / 10
+
+    </script>
+    
+</body>
+</html>
