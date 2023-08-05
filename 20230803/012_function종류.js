@@ -73,9 +73,9 @@ factorial(2) == 2 * factorial(1) == 2 * 1
 factorial(1) == 1
 
 // 6. 지역변수 전역변수
-let a = 10;
+let a2 = 10;
 function test() {
-  console.log(a)
+  console.log(a2)
 }
 test();
 
@@ -121,7 +121,7 @@ function test() {
 }
 
 
-let a = 10; // 전역변수
+let a3 = 10; // 전역변수
 function test() {
     let a = 100
     return a
@@ -129,7 +129,7 @@ function test() {
 test() // 100
 console.log(a) // 10
 
-let a = 10;
+let a4 = 10;
 function test() {
     let a = 100
     function test2() {
