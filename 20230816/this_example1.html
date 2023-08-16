@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this_example1</title>
+</head>
+<body>
+    <script>
+        let 인세규정 = {
+        책:10,
+        영상콘텐츠:50
+    };
+
+    function 인세계산함수(e){
+        return e *(this.책/100)
+    };
+    
+    //map(callback function, thisArg)
+    //thisArg는 callback을 실행할때 this로 사용할 값을 할당한다
+    //그렇기에 인세규정이 this로 설정되고, 인세계산함수의 this.책은 인세규정.책과 동일하다.
+
+    //[100, 200, 300]이 argument로 들어간다
+    [100, 200, 300].map(인세계산함수, 인세규정);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        function a() {
+            console.log(this);
+        }
+
+        a(); // 이럴경우 this는 window 함수를 가리킨다
+
+
+        const myObj = {
+            val1: 100,
+            fuc1() {
+                console.log(this);
+            }
+        }
+
+        myObj.fuc1(); // 이럴경우 this는 myObj를 가리킨다
+
+        
+        //하지만 전역변수로 객체안에있는 this를 호출했을경우, this는 window를 가리킨다.
+        let test = myObj.fuc1;
+        test();
+    </script>
+</body>
+</html>

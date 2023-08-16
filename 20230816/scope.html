@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope</title>
+</head>
+<body>
+    <script>
+        const func1 = function()  {
+            //var a = 1;
+            var b = 2;
+
+            console.log(a + b);
+        }
+
+        var a = 20;
+        func1();
+
+        //func1 안에 있는 var a = 1은 func1의 scope안에 있기에 밖에 있는 var a = 20은 scope가 찾지 않는다. 
+        //그렇기에 func1 안에 있는 var a의 값이 있을경우 3이 출력된다.
+        //하지만 만약 func1 안에 있는 변수 a에 할당된 값이 없을경우 scope chaining에 따라 상위 scope, 즉 전역 scope에서 var a의 값을 찾는다
+        //그렇기에 안에 있는 var a가 없을경우 밖에서 var a의 값을 찾아, 22가 출력된다.
+    </script>
+</body>
+</html>

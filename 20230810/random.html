@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+</head>
+
+<body>
+    <script>
+        Math.random(); // 0 ~ 0.999999...사이의 실수를 반환
+        //Number에 true를 넣었을시 1로 반환, false를 넣었을시 0을 반환함
+        //Math.random()에 숫자를 더하면 시작값을 지정할수있고
+        //숫자를 곱하면 최댓값을 지정할수있다
+
+
+        let randomNum = 0;
+        let randomArr = [];
+        function lotto() {
+            for(i = 0; i < 6; i++) {
+            randomNum = parseInt(Math.random() * 46 + 1); 
+                if([i] !== randomNum) {
+                randomArr.push(randomNum);
+                }
+            }    
+            return randomArr;
+        }
+        
+
+        lotto()
+
+        //풀이
+        function lottoGenerator() {
+            const lottoArr = [];
+
+            while(lottoArr.length < 6) {
+                const result = parseInt(Math.random() * 45 + 1);
+                //46까지의 숫자가 나와야하기때문에 45.999999이 나오는 45까지 설정해야한다
+
+
+                if(!lottoArr.includes(result)) {
+                    lottoArr.push(result);
+                } 
+            }
+            return lottoArr;
+        }
+
+        console.log(lottoGenerator());
+
+
+
+    </script>    
+</body>
+</html>

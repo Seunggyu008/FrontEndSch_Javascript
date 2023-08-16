@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this_apply_call</title>
+</head>
+<body>
+    <script>
+        var peter = {
+        name : 'Peter Parker',
+        sayName : function(is, is2){    
+                console.log(this.name+ ' is '+ is + ' or ' + is2);
+            }
+        }
+
+        var bruce = {
+        name : 'Bruce Wayne',
+        }
+
+        //apply()
+        peter.sayName.apply(bruce, ['batman', 'richman']);
+        //call()
+        peter.sayName.call(bruce, 'batman', 'richman')
+        
+    </script>
+</body>
+</html>
