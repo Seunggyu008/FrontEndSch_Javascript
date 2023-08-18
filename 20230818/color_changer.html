@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color_Changer</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: salmon;
+            text-align: center;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        ul {
+            width: 500px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "box">Default Color</div>
+        <ul>
+            <li><button class = "red" type = "button">빨강</button></li>
+            <li><button class = "yellow" type = "button">노랑</button></li>
+            <li><button class = "green" type = "button">초록</button></li>
+        </ul>
+    </div>
+
+    <script>
+        const box = document.querySelector('.box'),
+        btns = document.querySelectorAll('button');
+
+        btns.forEach((itemBtn) => {
+            itemBtn.addEventListener('click', () => {
+                box.className = 'box';
+                box.classList.add(itemBtn.className) //click이 됬을경우 
+            })
+        })
+
+
+        /* const box = document.querySelector('.box'),
+        redBtn = document.querySelector(".btn-red"),
+        yellowBtn = document.querySelector(".btn-yellow"),
+        greenBtn = document.querySelector(".btn-green"),
+        btns = document.querySelectorAll('[class^=btn]') */
+
+
+        /* btns.forEach((itemBtn) => {
+            itemBtn.addEventListener('click', () => {
+                box.classList.remove('red', 'yellow', 'green')
+                if(itemBtn.classList.contains('btn-red')) {
+                    box.classList.add('red');
+                } else if(itemBtn.classList.contains('btn-yellow')) {
+                    box.classList.add('yellow');
+                } else if (itemBtn.classList.contains('btn-green')){
+                    box.classList.add('green');
+                }
+            })
+        }); */
+
+        
+
+        /* redBtn.addEventListener('click', function () {
+            box.classList.remove('red', 'yellow', 'green'); //필요없는 클래스들을 다 제거해버린다, 없는 클래스가 있더라도 에러는 뿜지않고 그냥 무시한다.
+            box.classList.toggle('red');
+        })
+
+        yellowBtn.addEventListener('click', function () {
+            box.classList.remove('red', 'yellow', 'green');
+            box.classList.toggle('yellow');
+        })
+
+        greenBtn.addEventListener('click', function () {
+            box.classList.remove('red', 'yellow', 'green');
+            box.classList.toggle('green');
+        }) */
+
+        //몇번 누르면 색깔이 더 이상 안바뀌는 이유는 클래스가 이미 다 붙어버려서 그런것이다
+    </script>
+</body>
+</html>

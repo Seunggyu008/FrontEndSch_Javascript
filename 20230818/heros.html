@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //최신 버젼
+        async function fetchRequest() {
+            const response = await fetch();
+            const jsonData = await rseponse.json();
+        }
+
+        let jsonObj = {};
+
+        
+        //옛날 버전
+        function xhrRequest() {
+            //requestObj는 통신을 위한 객채가 된것이다
+            //이 과정은 고정된 과정이기때문에 외우는것이 좋을것이다.
+            //비동기적으로 실행된다
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'heros.json');
+            requestObj.send()
+            requestObj.onreadystatechange = () => { //변화가 감지되면 이 함수를 실행하여 
+                // readyState가 4단계까지 갔을경우 통신작업이 완전히 끝난상태를 의미한다. 200은 서버측에서 데이터를 잘 보냈다고 말하는것과 같다
+                if(requestObj.readyState === 4 && requestObj.status === 200) {  
+                    jsonObj = JSON.parse(requestObj.responseText);
+                }
+            }
+        }
+        //콘솔에서 xhrRequest();를 찍어줘야지 json파일이 들어온다.
+    </script>
+</body>
+</html>

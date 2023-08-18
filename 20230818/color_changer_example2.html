@@ -1,0 +1,74 @@
+<title>paint rect</title>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    list-style: none;
+  }
+  .wrap {
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    gap: 10px;
+  }
+  .canvas {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: auto;
+  }
+  .btns {
+    margin: 5px auto;
+  }
+  .btns li {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px rgb(134, 128, 128);
+    border-radius: 8px;
+    margin: 5px;
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+  .colors-red {
+    background-color: red;
+  }
+  .colors-yellow {
+    background-color: yellow;
+  }
+  .colors-green {
+    background-color: green;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="canvas"></div>
+  <ul class="btns">
+    <li><button class="paint-rect">red</button></li>
+    <li><button class="paint-rect">yellow</button></li>
+    <li><button class="paint-rect">green</button></li>
+  </ul>
+</div>
+<script>
+  const btn = document.querySelectorAll(".paint-rect");
+  const canvas = document.querySelector(".canvas");
+  function makeColorful(e) { //e는 이벤트 객채로써 event가 발생한 타겟의 정보가 들어가있다. 
+    //x는 요소, i는 인덱스
+    btn.forEach((x, i) => { // forEach는 Nodelist를 지원하지만 map은 지원하지 않는다.
+      canvas.classList.remove(`colors-${x.innerText}`);
+    });
+    const newClass = e.target.innerText;
+    canvas.classList.add(`colors-${newClass}`);
+  }
+  btn.forEach((x, i) => { //x는 btn들의 요소들이 들어가있다
+    x.addEventListener("click", makeColorful);
+  });
+</script>
+</body>
+</html>
