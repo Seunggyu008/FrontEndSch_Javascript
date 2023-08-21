@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class = "parent"></div>
+
+    <ul></ul>
+    <button>안녕하세요</button>
+
+    <script>
+        
+        
+
+        const text = document.createElement('p'); //메모리 상에서만 존재하는 가상요소를 만들기
+        const text2 = document.createElement('p')
+
+        //생선된 노드는 한번밖에 사용할수없다.추가로 요소를 생성하고싶으면 새로운 노드를 새로 선언해야된다.
+        //텍스트로 만들어진 node를 추가하기 (마찬가지로 메모리상에서만 존재한다)
+        const textInside =  document.createTextNode('문장입니다'); 
+        text.appendChild(textInside);
+        const parent = document.querySelector('.parent')
+
+        //요소를 새로 생성할때마다 createTextNode나 createElement를 써야되기에 반복문으로 보통 처리한다.
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
+
+        myBtn.addEventListener('click', function(){
+            for(let i=0; i < 5; i++){
+                const myLi = document.createElement('li');
+                myUl.appendChild(myLi);
+            }
+        })
+
+        //요소를 붙히는 방법:
+        //방법1:
+        parent.appendChild(text); 
+        parent.appendChild(text2);
+
+        //방법2:
+        parent.append('문자열입니다',text, text2); //문자열도 바로 추가가능
+
+        //붙힌 요소를 지우는 방법:
+        //방법1:
+        parent.removeChild(text2); 
+
+        //방법2:
+        parent.remove(text2);
+    </script>
+</body>
+</html>
