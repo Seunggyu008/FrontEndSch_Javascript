@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground</title>
+    <title></title>
 </head>
-
 <body>
 
-    <script>
-        let heroJsonObj = {};
+<!-- 앵커의 기본 동작을 중지 -->
+<a href="https://www.naver.com" class="link">네이버 링크입니다만..</a>
+<script>
+    const link = document.querySelector('.link');
+    link.addEventListener('click', (event) => {
+        console.log('clicked');
+        event.preventDefault();
+    })
+</script>
 
-        function xhrRequest() {
-            const requestObj = new XMLHttpRequest();
-            requestObj.open('GET', 'heros.json');
-            requestObj.send();
-            requestObj.onreadystatechange = () => {
-                if(requestObj.readyState === 4 && requestObj.status === 200) {
-                    heroJsonObj = JSON.parse(requestObj.responseText);
-                }
-            }
-        }
-    </script>
+<!-- submit 의 기본 동작을 중지 -->
+<form action="">
+    <button type="submit" class="submit">제출</button>
+</form>
+<script>
+    const submit = document.querySelector('.submit');
+    submit.addEventListener('click', (event) => {
+        console.log('clicked');
+        event.preventDefault();
+    })
+</script>
 
 </body>
 </html>

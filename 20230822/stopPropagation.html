@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Propagating</title>
+</head>
+<body>
+    <h1>나의 todo list</h1>
+    <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
+    <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+    <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+    <script>
+        const selectText = document.querySelectorAll('p');
+        const deleteBtn = document.querySelectorAll('button');
+
+
+        selectText.forEach((itemP) => {
+            itemP.addEventListener('click', ()=> {
+                //1. firstChild를 써서 첫번째 노드의 컨텐츠만 보여줄수있다
+                //2. slice()를 써서 '삭제'를 잘라낸다
+                //3. replace()를 사용해서 '삭제' 문자열을 제거한다
+                alert(itemP.firstChild.textContent);
+                
+            })
+        })
+
+        deleteBtn.forEach((itemBtn) => {
+            itemBtn.addEventListener('click', (event) => {
+                //result 변수에 저장해둔다 (나중에 삭제하기 위해서)
+                const result = confirm("선택하신 리스트를 지우시겠습니까?")
+
+                //이벤트 전파를 멈춘다
+                event.stopPropagation();
+
+                if(result) {
+                    //item.parentElement.remove()
+                    //item.parentNode.remove()를 써도 되지만 
+                    //parentNode는 노드 자체를 선택해버릴 수 있으니 조심해야된다.
+                    itemBtn.parentElement.remove();
+
+                }
+            })
+        })
+
+
+        
+    </script>
+</body>
+</html>

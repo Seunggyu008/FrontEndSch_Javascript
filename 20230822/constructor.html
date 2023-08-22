@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //constructor class
+        //생성자 함수의 this는 인스턴스를 가리킨다
+        function Factory(name) {
+            this.myName = name;
+            
+            this.sayYourName = function () {
+            console.log("삐쀼삐 내 이름은" + this.name+ " 입니다...!");
+        }
+        }
+
+        //인스턴스 만들기
+        //myName이란 property가 생긴다.
+        const robot1_1 = new Factory('재현');
+        const robot1_2 = new Factory('호준');
+
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+    
+    <script>
+        const parent = document.querySelector('.parent');
+        //prent.addEventListener('click', function (event) => )
+        //화살표함수는 상위 스코프를 가리킨다
+        //만약 화살표 함수 안에서 현재 이벤트 발생 요소를 가리킬려면 currentTarget을 사용하면 된다.
+        parent.addEventListener('click', (event) => {
+            console.log(event.target);
+            console.log(event.currentTarget);
+
+            if(event.target.nodeName === "LI") {
+                event.target.textContent = "hello";
+            }
+        })
+
+        //walk() 내부에서 선언된 this는 상위 객체인 myObj를 가리킨다
+        myObj = {
+            name: 'Seunggyu',
+            walk() {
+                parent.addEventListener('click', ()=> {
+                    console.log(this.name, ' is walking')
+                })
+            }
+        }
+    </script>
+</body>
+</html>

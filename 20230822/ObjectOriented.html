@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+    <script>
+        const meInfo = {
+            name: '정승규',
+            address: '경기도 안산시',
+            phoneNum: '010-3380-3464',
+            eatFood: function() {
+                console.log("승규 먹는다!");
+            },
+            canSleep: function() {
+                console.log("승규 잔다!")
+            },
+            canLearn: function() {
+                console.log("승규 공부한다!")
+            }
+        }
+
+        const meStatus = {
+            currentStatus: '승규 강의 열심히 듣는다!'
+        }
+
+        meInfo.canSleep(meStatus);
+        
+
+        /* const me = {
+            name: '한재현',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8000-0000',
+            canWalk: function () {
+                console.log('재현이가 걷는다.');
+            },
+            teaching: function (student) {
+                student.levelUp();
+            }
+        }
+
+        const lion = {
+            level: 1,
+            levelUp : function(){
+                this.level++;
+            }
+        }
+
+        me.teaching(lion); */
+    </script>
+</body>
+</html>
