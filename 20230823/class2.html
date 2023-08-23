@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class2</title>
+</head>
+<body>
+    <script>
+        /* const meStatus = {
+            currentStatus: '승규 강의 열심히 듣는다!'
+        }
+
+        function Me() {
+            this.name = name;
+            this.address = address;
+            this.phoneNum = phoneNum;
+        }
+
+        Me.prototype.eatFood = function() {
+                console.log("승규 먹는다!");
+        },
+        Me.prototype.canSleep = function() {
+                console.log("승규 잔다!")
+        },
+        Me.prototype.canLearn =  function() {
+            console.log("승규 공부한다!")
+        }
+
+        function MeStatus() {
+            this.currentStatus = ''
+        } */
+
+        
+
+
+        class Me {
+            constructor(name) {
+                this.name = name;
+                this.address = '경기도 안산시';
+                this.phoneNum = '010-3380-3464';
+            }
+
+            eatFood () {
+                console.log("승규 먹는다!");
+            }
+
+            canSleep() {
+                console.log("승규 잔다")
+            }
+        }
+
+        class MeStatus {
+            constructor() {
+                this.currentStatus = '';
+            }
+        }
+
+    </script>
+</body>
+</html>

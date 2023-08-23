@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot</title>
+</head>
+<body>
+    <script>
+        class Robot {
+            //#important를 이런식으로 선언하면 property가 비공개가 된다.
+            //접근 및 할당 둘 다 불가능 해진다.
+            //여기 #important랑 아래의 #important 둘 다 꼭 적어줘야한다.
+            #important
+
+            //바뀌어도 될거같지만 조심하게 바뀌어야 한다면 get-set을 사용하면 된다
+
+            constructor(name, info) {
+                this.myName = name;
+                this.#important = info;
+            }
+
+            getPassword() {
+                return this.#password
+            }
+
+            setPassword(pw) {
+                this.#password = pw;
+            }
+
+            get password() {
+                return this.#password
+            };
+
+            set password(pw) {
+                this.#password = pw;
+            }
+        }
+
+        const robot2 = new Robot2('재현', 123123);
+        console.log(robot2.password);
+        robot2.password = 456456;
+
+        /* const robot2 = new Robot2('재현', 123123);
+        console.log(robot2.getPassword());
+        console.log(rotbo2.setPassword(4567832)); */
+
+    </script>
+</body>
+</html>

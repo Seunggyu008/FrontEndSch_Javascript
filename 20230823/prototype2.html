@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function Parent() {
+        this.name = '재현';
+    }
+    Parent.prototype.rename = function (name) {
+        this.name = name;
+    }
+    Parent.prototype.sayName = function () {
+        console.log(this.name);
+    }
+
+    //부모에서 선언한선 프로퍼티와 메서드를 자식이 쓰는 법:
+    function Child() {
+        //call 메서드는 기본적으로 함수를 호출하는데 쓰이지만,
+        //this의 가리키는 방향을 바꾸는 곳에도 쓰인다
+        //이 경우 this를 Parent의 this를 Child의 this로 바꾸는데 쓰인다.
+        Parent.call(this);
+        this.newName = '소울';
+    }
+
+    // object.create 메서드를 통해 지정된 프로토타입 객체를 갖는 새 객체를 만듭니다.
+    Child.prototype = Object.create(Parent.prototype); 
+
+    //상속받는 자식만의 메서드나 프로퍼티를 만드는 것도 가능합니다.
+    Child.prototype.hello = function() {
+        console.log('hello')
+    }
+
+    const child = new Child();
+
+
+    /* Child.prototype.canWalk = function () {
+        console.log('now i can walk!!');
+    } */
+
+    //자바스크립트는 다중 상속을 지원하지 않는다.
+
+    </script>
+</body>
+</html>

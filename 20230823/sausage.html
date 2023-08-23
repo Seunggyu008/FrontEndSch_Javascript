@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sausage</title>
+</head>
+<body>
+    <script>
+        class deliciousSausage {
+            constructor(소고기, 파) {
+                this.소고기 = 소고기;
+                this.파 = 파;
+            }
+
+
+            taste() {
+                //매개변수 확인하는법?
+                if(this._소고기 && this._파) {
+                    console.log(`${this.소고기}와 ${this.파} 맛이 난다!`)
+                } 
+            }
+        }
+        
+        class FireSausage extends Sausage {
+            //javascript는 상속된 변수의 매개 변수에 유무에따라서 메서드가 다르게 실행되지 않는다
+            //그 이유는, 매개변수 규칙이 엄격하지 않아서다.
+            taste(msg) {
+                console.log (`소세지`)
+                    
+            };
+        }
+
+        class FireSausage extends deliciousSausage {
+            //constructor를 안써도된다
+            constructor(소고기, 파) {
+                super(소고기, 파);
+            }
+
+            tasteFireSauage() {
+                this.taste();
+                console.log('불 맛이...나는군!')
+            }
+        }
+
+        const sausage = new deliciousSausage('소고기', '파');
+    </script>    
+</body>
+</html>
