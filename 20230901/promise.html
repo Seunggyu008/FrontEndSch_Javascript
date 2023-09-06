@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        const orderCoffee = new Promise((resolve, reject)=> {
+            //통신은 언제나 잘못될수가 있기때문에 항상 그걸 염도에 두고 코드를 짜야된다
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'orderCoffee.txt');
+            requestObj.onreadyState = () => {
+                if(requestObj.readyState === 4) {
+                    //else문은 통신이 되었더라도 내가 원하는 데이터가 제대로 왔는지 확인하기 위한 수단
+                    if(requestObj.status === 200) {
+                        const result = requestObj.responseText;
+                        resolve(result);
+                    } else {
+                        //에러문을 작성할때 status도 같이 보내면 디버깅에 도움이 될것이다.
+                        reject(new Error(`오늘의 커피 원두가 다 떨어졌습니다 ${requestObj.status}`));
+                    }
+                }
+                requestObj.send();
+            };
+        });
+        
+        //then이랑 result는 항상 페어로 움직인다
+        orderCoffee.then((asyncResult) => {
+            console.log(asyncResult);
+        }).catch((error) => {
+            console.log(error);
+        })
+        //promise는 비동기를 동기처럼 보이기위해 만들어진 함수이다.
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button_Async</title>
+    <style>
+        button {
+            display: block;
+            background-color: salmon;
+            border: 1px solid transparent;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p>some text</p>
+    <button>Press Me!</button>
+
+    <script>
+    const xhrObj = new XMLHttpRequest();
+
+    /*
+        const onButtonClick = document.querySelector('button');
+
+        onButtonClick.addEventListener('click', () => {
+            xhrObj.open('GET', "message.txt");
+            xhrObj.onreadystatechange = () => {
+                if(xhrObj.readyState === 4 && xhrObj.status === 200) {
+                    console.log(xhrObj.responseText);
+                }
+            }
+            xhrObj.send();
+        })     
+        */
+
+    
+        //model_answer
+        const onButtonClick = document.querySelector('button');
+        const text = document.querySelector('p');
+        onButtonClick.addEventListener('click', xhrRequest);
+        let result;
+
+        function xhrRequest() {
+            const xhrObj = new XMLHttpRequest();
+            //.open에는 처리할 서버 메서드, 연결할 서버의 URL 주소를 입력한다
+            xhrObj.open('GET', 'message.txt');
+
+            xhrObj.onreadystatechange = () => {
+                if(xhrObj.readyState === 4 && xhrObj.status === 200) {
+                    result = xhrObj.responseText;
+                    //text.textContent = result;
+                    console.log(result);
+                }
+            };
+            xhrObj.send();
+        }; 
+
+        xhrRequest();
+        //자바스크립트 엔진은 위에 xhrRequest()가 끝나기전에 
+        //아래에있는 console.log(result)를 먼저 처리해버린다.
+        console.log(result);
+
+        //위 코드의 두 console.log(result)의 값이 다른 이유는 요청이 가는 
+        //xhrObj.send()가 호출되기전에 console.log로 찍었기 때문이다.
+
+
+
+        
+    </script>
+</body>
+</html>

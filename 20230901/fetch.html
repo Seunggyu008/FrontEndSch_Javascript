@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+</head>
+<body>
+    <script>
+        //fetch는 url주소가 잘못되었을경우 바로 error로 넘어간다
+        //하지만 그래도 서버로부터 문제가 생겼을경우를 대비하여 아래의 error handling은 꼭 필요합니다.
+        /* fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then((response) => {
+            if(!response.ok) {
+                throw new Error(`HTTP ERROR!! State: ${response.status}`);
+            }
+            return response.json();
+        })
+
+        .then((data)=> {
+            console.log(data);
+            return data;
+        }).catch ((error) => {
+            console.error(error);
+        }) */
+
+        class UserStorage {
+
+            
+            searchUser(userName, password) {
+                return new Promise((resolve, reject) => {
+                
+            })
+                //fetch를 통해 비동기 통신을 시작합니다. 
+                //서버의 응답 정보가 담겨있는 response 객체를 promise로 반환합니다.
+                fetch('./json/userData.json')
+                .then((response)=> {
+                    //통신의 결과로 전달받는 response 객체에 json 메소드를 이용해서 
+                    //js 객체를 가지는 promise 객체를 추출합니다.
+                    return response.json();
+                })
+                //전달된 js 객체로 우리가 원하는 데이터 추출
+                .then((data) => {
+                    const result = data.user.find((item)=> {
+                        return item.userName === userName && item.password === password;
+                    });
+
+                    if(result){
+                        //콜백함수를 실행하지 않고 resolve, reject를 실행한다.
+                        resolve(userName);
+                        //사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
+                    } else {
+                        //Error()는 에러객체를 만들어 주는 생성자 함수
+                        reject(new Error('user not found'));
+                    }
+                }).catch((error)=> {
+                    console.error(error);
+                })
+            }
+
+            sayHi(user) {
+                return new Promise((resolve, reject) => {
+                    fetch('./json/greetings.json')
+                    .then((response) => {
+                        return response.json();
+                    }).then((data) => {
+                        data.greetings.find((item) => {
+                            return item.userName === user
+                        });
+
+                        if(result) {
+                            resolve(result);
+                        } else {
+                            reject(new Error('no greetings'));
+                        }
+                    }).catch ((error) => {
+                        console.error(error);
+                    })
+                })
+            }
+        }
+
+        const userStorage = new UserStorage();
+        const userName = prompt('이름을 입력하세요')
+        const password = prompt('비밀번호를 입력하세요')
+
+        //resolve는 then이 실행됬을떄 반환된다
+        userStorage.searchUser(userName, password)
+        .then((result) => {
+            return sayHi(result);
+        }).then((result) => {
+            //resolve가 반환된 후 catch가 반환됨
+            alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`)
+        }).catch((errorMsg) => {
+            //console.error(errorMsg)
+            console.log(errorMsg);
+        });
+    </script>
+</body>
+</html>
